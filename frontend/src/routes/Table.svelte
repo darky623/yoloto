@@ -181,7 +181,7 @@
     <div class="error">{error}</div>
   {:else}
     <header class="table-header">
-      <button class="back-btn" on:click={() => goto('/lobby')}>← Назад</button>
+      <button class="back-btn" onclick={() => goto('/lobby')}>← Назад</button>
       <div class="table-info">
         <h1>{tableData.table?.name || 'Стол'}</h1>
         <div class="info-row">

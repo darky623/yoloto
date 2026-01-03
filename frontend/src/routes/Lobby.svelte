@@ -72,7 +72,7 @@
       <span class="username">{user?.username || 'Пользователь'}</span>
       <span class="balance">Баланс: {balance.toFixed(2)} руб.</span>
     </div>
-    <button class="logout-btn" on:click={handleLogout}>Выход</button>
+    <button class="logout-btn" onclick={handleLogout}>Выход</button>
   </header>
   
   <main class="main">
@@ -111,7 +111,7 @@
             </div>
             <button
               class="join-btn"
-              on:click={() => goto(`/table/${table.id}`)}
+              onclick={() => goto(`/table/${table.id}`)}
               disabled={!canJoinTable(table) || balance < parseFloat(table.bet_amount)}
             >
               {canJoinTable(table) ? 'Присоединиться' : 'Наблюдать'}

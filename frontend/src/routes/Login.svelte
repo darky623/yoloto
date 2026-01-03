@@ -50,7 +50,7 @@
       <div class="error">{error}</div>
     {/if}
     
-    <form on:submit|preventDefault={handleSubmit}>
+    <form onsubmit={(e) => { e.preventDefault(); handleSubmit(); }}>
       <div class="form-group">
         <label for="username">Логин</label>
         <input
@@ -97,7 +97,7 @@
     </form>
     
     <div class="switch">
-      <button class="link-button" on:click={() => isLogin = !isLogin}>
+      <button class="link-button" onclick={() => isLogin = !isLogin}>
         {isLogin ? 'Нет аккаунта? Зарегистрироваться' : 'Уже есть аккаунт? Войти'}
       </button>
     </div>

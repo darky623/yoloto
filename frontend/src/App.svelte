@@ -27,7 +27,15 @@
   let Component = $derived(getComponent());
 </script>
 
-<svelte:component this={Component} />
+{#if Component === Login}
+  <Login />
+{:else if Component === Lobby}
+  <Lobby />
+{:else if Component === Table}
+  <Table />
+{:else}
+  <Login />
+{/if}
 
 <style>
   :global(body) {

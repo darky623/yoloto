@@ -11,7 +11,7 @@
   {:else}
     <button
       class="action-btn join"
-      on:click={onJoin}
+      onclick={onJoin}
       disabled={!canJoin}
     >
       Ставка

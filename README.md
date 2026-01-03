@@ -58,15 +58,27 @@ DIRECTUS_ADMIN_EMAIL=admin@example.com
 DIRECTUS_ADMIN_PASSWORD=admin_password_change_in_production
 ```
 
-4. **Запустите приложение**:
+4. **Выберите конфигурацию**:
+   - **Для локальной разработки**: Используйте `nginx.local.conf` (без HTTPS)
+   - **Для production (yoloto.clava.space)**: Используйте `nginx.conf` (с HTTPS)
+
+5. **Для локальной разработки**:
 ```bash
+# Используйте локальную конфигурацию
+cp nginx/nginx.local.conf nginx/nginx.conf
 docker-compose up -d --build
+# Откройте http://localhost
 ```
 
-5. **Откройте в браузере**:
-- Приложение: http://localhost
-- API документация: http://localhost/api/docs
-- Directus админ-панель: http://localhost/admin
+6. **Для production**:
+```bash
+# Убедитесь, что используется production конфигурация (nginx.conf)
+# Убедитесь, что SSL сертификаты установлены в /etc/letsencrypt/live/yoloto.clava.space/
+docker-compose up -d --build
+# Откройте https://yoloto.clava.space
+```
+
+**Подробные инструкции по деплою см. в `DEPLOY.md`**
 
 ## Разработка
 

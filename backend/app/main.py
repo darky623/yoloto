@@ -9,7 +9,10 @@ app = FastAPI(title="Dice Game API", version="1.0.0")
 # CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # В production указать конкретные домены
+    allow_origins=[
+        "https://yoloto.clava.space",
+        "http://yoloto.clava.space",  # Для редиректа
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

@@ -13,6 +13,7 @@ export class WebSocketService {
     }
     
     this.tableId = tableId;
+    // Используем текущий протокол и хост (автоматически определит wss: для HTTPS)
     const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
     const host = window.location.host;
     const wsUrl = `${protocol}//${host}/ws/${tableId}?token=${token}`;

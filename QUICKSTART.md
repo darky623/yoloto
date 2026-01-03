@@ -19,9 +19,17 @@ docker-compose up -d --build
 
 ## 3. Откройте в браузере
 
+**Для локальной разработки:**
 - **Приложение**: http://localhost
 - **API документация**: http://localhost/api/docs
 - **Directus админ-панель**: http://localhost/admin
+
+**Для production (yoloto.clava.space):**
+- **Приложение**: https://yoloto.clava.space
+- **API документация**: https://yoloto.clava.space/api/docs
+- **Directus админ-панель**: https://yoloto.clava.space/admin
+
+**Примечание**: Для production убедитесь, что SSL сертификаты установлены. См. `DEPLOY.md` для деталей.
 
 ## 4. Создайте аккаунт
 

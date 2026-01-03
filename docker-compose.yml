@@ -16,16 +16,6 @@ services:
     networks:
       - dice_game_network
 
-  frontend:
-    build: ./frontend
-    container_name: dice_game_frontend
-    volumes:
-      - ./frontend/dist:/usr/share/nginx/html
-    depends_on:
-      - backend
-    networks:
-      - dice_game_network
-
   directus:
     image: directus/directus:latest
     container_name: dice_game_directus
@@ -46,11 +36,10 @@ services:
       - dice_game_network
 
   nginx:
-    image: nginx:alpine
+    build: ./frontend
     container_name: dice_game_nginx
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
-      - ./frontend/dist:/usr/share/nginx/html
       - /etc/letsencrypt:/etc/letsencrypt:ro
       - /var/www/certbot:/var/www/certbot:ro
     ports:
@@ -58,7 +47,6 @@ services:
       - "443:443"
     depends_on:
       - backend
-      - frontend
       - directus
     restart: unless-stopped
     networks:
